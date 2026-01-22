@@ -18,7 +18,7 @@ df['Hour'] = df['Datetime'].dt.strftime('%H:%M')
 result = df.pivot(index='Date', columns='Hour', values='AAPL')
 result = result.iloc[:,1:]
 result = result.dropna(how="all")
-result = result.ffill()
+result = result.ffill(axis = 1)
 
 y = result.iloc[:,-1]
 X = result.iloc[:,:-1]
